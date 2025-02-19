@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection, importProvidersFrom } from '@angular/core';
 import {
   provideHttpClient,
   withFetch,
@@ -6,6 +6,7 @@ import {
 } from '@angular/common/http';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideFileRouter, requestContextInterceptor } from '@analogjs/router';
+import { LucideAngularModule, Phone, Clock, Mail, Map } from 'lucide-angular';
 
 
 export const appConfig: ApplicationConfig = {
@@ -17,6 +18,6 @@ export const appConfig: ApplicationConfig = {
       withFetch(),
       withInterceptors([requestContextInterceptor])
     ),
-
+    importProvidersFrom(LucideAngularModule.pick({ Phone, Clock, Mail, Map }))
   ],
 };

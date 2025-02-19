@@ -3,12 +3,20 @@
 import analog from '@analogjs/platform';
 import { defineConfig, Plugin } from 'vite';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import * as path from 'path';
+
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
     root: __dirname,
     cacheDir: `../node_modules/.vite`,
+    resolve: {
+      alias: {
+        '~': path.resolve(__dirname, 'src/'),
+        '~components': path.resolve(__dirname, 'src/app/components'),
+      },
+    },
     
     build: {
       outDir: '../dist/./app/client',
