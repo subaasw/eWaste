@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "npx nx serve app"
+    "dev": "npx nx serve app"
   },
   "private": true,
   "dependencies": {
